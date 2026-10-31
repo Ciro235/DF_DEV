@@ -1,0 +1,15 @@
+node_modules/
+.wrangler/
+.agents/
+.env
+.env.*
+public/**/index.html
+public/404.html
+public/sitemap.xml
+public/robots.txt
+public/contact-config.json
+public/social*.png
+playwright-report/
+test-results/
+__pycache__/
+public/demo-preview-*.png
