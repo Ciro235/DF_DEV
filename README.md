@@ -70,3 +70,9 @@ Estas dependencias no se ocultan con confirmaciones falsas. No se incorporan pro
 Rediseño claro con acentos azules y verdes, tarjetas de servicios, cuatro fases de trabajo y uso limitado de iconos. La vista del producto es una captura de la demo propia, no una interfaz de cliente inventada. Todas las rutas comparten el diseño y preservan sus versiones ES/EN.
 
 La fuente Manrope se aloja localmente; su licencia SIL Open Font License se conserva en public/fonts/OFL.txt. No se carga una fuente desde Google en el navegador del visitante.
+
+## Logo original y fondos
+
+La cabecera, el pie, el favicon y las imágenes sociales utilizan una versión del logo original adjunto con contornos más definidos y acabado homogéneo; las variantes alternativas se descartaron. LOGO_FILE y FAVICON_FILE en scripts/build.py permiten sustituirlo. El icono vectorial anterior se conserva en public/icon.svg para poder recuperarlo.
+
+Los degradados y las ondas azules/verdes son fondos decorativos en CSS, con menor intensidad en móvil, sin añadir iconos ni scripts de animación.
