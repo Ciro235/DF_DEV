@@ -1,0 +1,15 @@
+{
+  "tool": "Built-in image_gen",
+  "common_prompt": "Use case: stylized-concept. Asset type: website hero illustration for readytoprod, a small custom web development and automation team. Create a premium editorial 3D still life in a wide landscape 3:2 frame. Consistent visual series: soft ivory-white backdrop, cobalt blue #0860e9 and emerald green #16b75b accents, frosted translucent glass and satin ceramic, rounded forms, gentle studio daylight, delicate shadows, precise clean composition with generous breathing room and complete objects inside frame. Sophisticated, tangible, calm, approachable. Absolutely no text, no letters, no numbers, no typography, no watermarks, no logos, no legible UI. Not a collage. ",
+  "scenes": {
+    "home": "Subject for homepage: an elegant flowing blue and green ribbon connects three small sculptural modules representing a browser window, a connected workflow, and an organized stack of cards, converging into one coherent efficient system. One beautiful central composition.",
+    "automation": "Subject: a flowing blue input stream of small blank cards enters a beautiful emerald mechanical sorting loop and emerges as three neatly organized stacks, a few connected glass nodes suggest smart automation. Physical sculptural metaphor, no robots.",
+    "web": "Subject: an elegantly angled desktop browser-shaped glass panel and smaller mobile-shaped slab, completely blank except for geometric blue and emerald blocks and image placeholders, arranged as a responsive web design composition. No letters, no lines of fake text, no device branding.",
+    "integrations": "Subject: three distinct blue and green modular glass systems on small platforms linked by sweeping translucent cables and snug interlocking connectors, with tiny luminous spheres traveling between them. A beautifully balanced connected ecosystem.",
+    "demo": "Subject: several blank blue request cards move through three rounded trays and emerge as an orderly green card stack beside a clear circular checkmark sculpture. A request organizer illustrated physically, no textual labels, no numbered steps.",
+    "team": "Subject: two equally important sculptural workstations facing a shared central creative model, each with a blank blue or green monitor slab, linked by one elegant looping ribbon, symbolizing two brothers collaborating remotely. No people or faces, no invented portraits.",
+    "contact": "Subject: a single open ivory envelope sculpture with a blue blank card emerging and a green curved ribbon connecting it to two small receiving nodes, suggesting a direct human conversation. Warm welcoming studio composition.",
+    "privacy": "Subject: a refined translucent cobalt shield gently protecting a small emerald sphere and a few blank ivory cards, with a delicate surrounding glass ring. Elegant restrained privacy metaphor, no warning symbols, no text.",
+    "legal": "Subject: a neat stack of blank ivory document sheets with a blue glass corner tab and an emerald interlocking ring beside them, suggesting clear agreements and shared trust. Minimal professional still life, absolutely no writing on documents."
+  }
+}
