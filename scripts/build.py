@@ -20,7 +20,7 @@ ROUTES = {
     "legal": {"es": "/legal/", "en": "/en/legal/"},
 }
 LOGO_FILE = "/logo-original.webp"
-FAVICON_FILE = "/logo-original-64.png"
+FAVICON_FILE = "/favicon-transparent-64.png"
 EMAILS = ["dariosc235@gmail.com", "fsegui16@gmail.com"]
 ARROW = '<svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg>'
 def t(es, en, lang):

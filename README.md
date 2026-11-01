@@ -73,6 +73,6 @@ La fuente Manrope se aloja localmente; su licencia SIL Open Font License se cons
 
 ## Logo original y fondos
 
-La cabecera, el pie, el favicon y las imágenes sociales utilizan una versión del logo original adjunto con contornos más definidos y acabado homogéneo; las variantes alternativas se descartaron. LOGO_FILE y FAVICON_FILE en scripts/build.py permiten sustituirlo. El icono vectorial anterior se conserva en public/icon.svg para poder recuperarlo.
+La cabecera, el pie, el favicon y las imágenes sociales utilizan una versión del logo original adjunto con contornos más definidos y acabado homogéneo; las variantes alternativas se descartaron. El favicon usa la imagen PNG transparente proporcionada, reducida a 64 x 64 píxeles en public/favicon-transparent-64.png. LOGO_FILE y FAVICON_FILE en scripts/build.py permiten sustituir estos recursos. El icono vectorial anterior se conserva en public/icon.svg para poder recuperarlo.
 
 Los degradados y las ondas azules/verdes son fondos decorativos en CSS, con menor intensidad en móvil, sin añadir iconos ni scripts de animación.
