@@ -46,7 +46,7 @@ for (const lang of ['es','en']) {
     await expect(page.locator('#demo-result')).toBeEmpty();
   });
   test(lang+' mock legal data cannot imply an inquiry was sent', async ({ page }) => {
-    await page.goto(lang==='es'?'/contacto/':'/en/contact/');
+    await page.goto(lang==='es'?'/contact/':'/en/contact/');
     let posts=0;
     page.on('request', req=>{if(req.method()==='POST')posts++;});
     await page.locator('#contact-service').selectOption('web');
@@ -60,7 +60,7 @@ for (const lang of ['es','en']) {
   });
 }
 test('language switch uses equivalent service URL', async ({ page }) => {
-  await page.goto('/servicios/automatizacion/');
+  await page.goto('/services/automation/');
   await page.locator('[data-language=en]').click();
   await expect(page).toHaveURL(/\/en\/services\/automation\/$/);
   await expect(page.locator('html')).toHaveAttribute('lang','en');
