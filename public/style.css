@@ -26,3 +26,12 @@
 @media(max-width:800px){.hero:before{display:block;width:110%;right:-35%;height:60%;top:22%;opacity:.22}.process:before{height:145px;opacity:.33}}
 @media(max-width:600px){.brand img{width:34px;height:34px}.hero:before{top:35%;height:50%;opacity:.24}.process:before,.example-intro:before,.team:before{height:110px;opacity:.26}}
 @media(max-width:360px){.brand img{width:28px;height:28px}}
+
+/* Real team portraits, kept in reading order at every viewport. */
+.team .people{grid-template-columns:minmax(0,1fr);gap:20px}
+.team .person{display:grid;grid-template-columns:150px minmax(0,1fr);gap:25px;padding:16px;overflow:hidden;border-radius:20px;box-shadow:0 8px 28px #14214406}
+.person-photo{display:block;width:150px;height:150px;object-fit:cover;border-radius:13px}
+.team .person h3{font-size:23px;letter-spacing:-.6px;margin:0 0 8px}
+.team .person p{font-size:14px;line-height:1.6;color:var(--muted);max-width:26ch}
+@media(max-width:600px){.team .person{grid-template-columns:110px minmax(0,1fr);gap:18px;padding:12px}.person-photo{width:110px;height:110px;border-radius:10px}.team .person h3{font-size:20px}.team .person p{font-size:13px}}
+@media(max-width:359px){.team .person{grid-template-columns:90px minmax(0,1fr);gap:12px}.person-photo{width:90px;height:110px}.team .person h3{font-size:18px}.team .person p{font-size:12px}}
