@@ -6,7 +6,7 @@
     "build": "python3 scripts/build.py",
     "check": "python3 scripts/check.py && node --check public/site.js && node --test tests/contact-api.test.mjs",
     "test": "playwright test",
-    "assets": "node scripts/render-assets.mjs"
+    "assets": "node scripts/render-assets.mjs && python3 scripts/build.py"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1"

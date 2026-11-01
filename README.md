@@ -64,3 +64,9 @@ El workflow valida y guarda un artefacto. No publica automáticamente. No se han
 Identidad, roles, retratos y perfiles definitivos; datos legales y revisión final; dominio y proveedor de correo; credenciales y remitente verificado para envío directo; proveedor y condiciones de medición remota.
 
 Estas dependencias no se ocultan con confirmaciones falsas. No se incorporan productos, carrito ni pagos.
+
+## Dirección visual — noviembre 2026
+
+Rediseño claro con acentos azules y verdes, tarjetas de servicios, cuatro fases de trabajo y uso limitado de iconos. La vista del producto es una captura de la demo propia, no una interfaz de cliente inventada. Todas las rutas comparten el diseño y preservan sus versiones ES/EN.
+
+La fuente Manrope se aloja localmente; su licencia SIL Open Font License se conserva en public/fonts/OFL.txt. No se carga una fuente desde Google en el navegador del visitante.
