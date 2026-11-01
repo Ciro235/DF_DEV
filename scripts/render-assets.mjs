@@ -18,10 +18,13 @@ const browser = await chromium.launch({ headless: true, ...(process.env.CHROME_P
 try {
   for (const lang of ['es','en']) {
     const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
-    await page.setContent('<!doctype html><html lang="'+lang+'"><meta charset="utf-8"><style>body{margin:0;width:1200px;height:630px;background:#09172d;color:white;font-family:Arial,sans-serif;box-sizing:border-box;padding:80px 88px}b{font-size:34px}h1{font-size:88px;line-height:1.12;letter-spacing:-3px;margin:82px 0 48px}em{font-style:normal;color:#13bf79}p{font-size:28px;color:#c7d3e3}</style><b>readytoprod</b><h1>'+(lang==='es'?'Menos tareas.<br><em>Más negocio.</em>':'Fewer tasks.<br><em>More business.</em>')+'</h1><p>'+(lang==='es'?'Automatización y desarrollo web a medida.':'Custom automation and web development.')+'</p></html>');
+    await page.goto('http://127.0.0.1:'+server.address().port+(lang==='es'?'/':'/en/'));
+    await page.setContent('<!doctype html><html lang="'+lang+'"><meta charset="utf-8"><style>@font-face{font-family:Manrope;src:url(/fonts/manrope.ttf);font-weight:400 800}body{margin:0;width:1200px;height:630px;background:linear-gradient(120deg,#fff,#edf7ff 70%,#e9f9ef);color:#142144;font-family:Manrope,Arial,sans-serif;box-sizing:border-box;padding:65px 82px}b{font-size:32px;letter-spacing:-1px}h1{font-size:72px;line-height:1.2;letter-spacing:-2.5px;margin:65px 0 32px;font-weight:800}em{font-style:normal;color:#078149}.blue{color:#0860e9}p{font-size:25px;color:#53627c}</style><b>readytoprod</b><h1>'+(lang==='es'?'Soluciones digitales.<br><span class="blue">Menos tareas.</span> <em>Más negocio.</em>':'Digital solutions.<br><span class="blue">Fewer tasks.</span> <em>More business.</em>')+'</h1><p>'+(lang==='es'?'Desarrollo, IA y automatización a medida.':'Custom development, AI and automation.')+'</p></html>');
+    await page.evaluate(()=>document.fonts.ready);
     await page.screenshot({ path: 'public/social'+(lang==='en'?'-en':'')+'.png' });
     await page.setViewportSize({width:1120,height:850});
     await page.goto('http://127.0.0.1:'+server.address().port+(lang==='es'?'/demo/':'/en/demo/'));
+    await page.evaluate(()=>document.fonts.ready);
     await page.locator('#demo-volume').fill('42');
     await page.locator('#demo-urgency').selectOption('urgent');
     await page.locator('#demo-form button[type=submit]').click();
