@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { readFile } from 'node:fs/promises';
 
 for (const lang of ['es','en']) {
   const root = lang === 'es' ? '/' : '/en/';
@@ -7,14 +6,16 @@ for (const lang of ['es','en']) {
     test(lang+' layout '+width, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(root);
+      await page.evaluate(() => document.fonts.ready);
       await expect(page.locator('html')).toHaveAttribute('lang',lang);
       await expect(page.locator('h1')).toBeVisible();
-      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       expect(await page.evaluate(() => {
-        const a=document.querySelector('.terminal').getBoundingClientRect();
-        const b=document.querySelector('.hero-foot').getBoundingClientRect();
-        return Math.min(a.right,b.right)<=Math.max(a.left,b.left)||Math.min(a.bottom,b.bottom)<=Math.max(a.top,b.top);
+        const a=document.querySelector('.hero-art').getBoundingClientRect();
+        const b=document.querySelector('.hero').getBoundingClientRect();
+        return a.left>=b.left && a.right<=b.right && a.top>=b.top && a.bottom<=b.bottom;
       })).toBe(true);
+      await expect.poll(() => page.locator('#services').evaluate(section => section.getBoundingClientRect().top)).toBeLessThan(900);
       if (width<=800) {
         await expect(page.locator('#main-nav')).toBeHidden();
         await page.locator('#menu-toggle').click();
@@ -28,22 +29,16 @@ for (const lang of ['es','en']) {
       await expect(page.locator('details').first()).toHaveAttribute('open','');
     });
   }
-  test(lang+' demo responds to choices and downloads actual data', async ({ page }) => {
-    await page.goto(root+'demo/');
-    await page.locator('#demo-form button[type=submit]').click();
-    const first=await page.locator('#demo-result').textContent();
-    await page.locator('#demo-urgency').selectOption('urgent');
-    await page.locator('#demo-volume').fill('42');
-    await page.locator('#demo-form button[type=submit]').click();
-    expect(await page.locator('#demo-result').textContent()).not.toBe(first);
-    await expect(page.locator('#demo-result')).toContainText('42');
-    const pending=page.waitForEvent('download');
-    await page.locator('#demo-download').click();
-    const file=await (await pending).path();
-    expect(await readFile(file,'utf8')).toContain('42');
-    await page.locator('#demo-reset').click();
-    await expect(page.locator('#demo-download')).toBeHidden();
-    await expect(page.locator('#demo-result')).toBeEmpty();
+  test(lang+' removed organizer and team contact cards', async ({ page, request }) => {
+    expect((await request.get(root+'demo/')).status()).toBe(404);
+    await page.goto(root+'team/');
+    await expect(page.locator('.team-card')).toHaveCount(2);
+    await expect(page.locator('.team-card').first()).toHaveAttribute('href','mailto:fsegui16@gmail.com');
+    await expect(page.locator('.team-card').last()).toHaveAttribute('href','mailto:dariosc235@gmail.com');
+    await expect(page.locator('a[href*="/demo/"]')).toHaveCount(0);
+    await expect(page.locator('.hero-art')).toHaveCount(0);
+    await page.goto(root+'contact/');
+    await expect(page.locator('main img')).toHaveCount(0);
   });
   test(lang+' mock legal data cannot imply an inquiry was sent', async ({ page }) => {
     await page.goto(lang==='es'?'/contact/':'/en/contact/');
